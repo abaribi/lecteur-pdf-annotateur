@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecteur PDF</title>
+    <meta name="theme-color" content="#667eea">
+    <meta name="description" content="Lecteur PDF avec outils d'annotation">
+    <link rel="manifest" href="data:application/json;base64,ewogICJuYW1lIjogIkxlY3RldXIgUERGIiwKICAic2hvcnRfbmFtZSI6ICJQREYgUmVhZGVyIiwKICAiZGVzY3JpcHRpb24iOiAiTGVjdGV1ciBQREYgYXZlYyBvdXRpbHMgZCdhbm5vdGF0aW9uIiwKICAic3RhcnRfdXJsIjogIi8iLAogICJkaXNwbGF5IjogInN0YW5kYWxvbmUiLAogICJiYWNrZ3JvdW5kX2NvbG9yIjogIiM2NjdlZWEiLAogICJ0aGVtZV9jb2xvciI6ICIjNjY3ZWVhIiwKICAiaWNvbnMiOiBbCiAgICB7CiAgICAgICJzcmMiOiAiZGF0YTppbWFnZS9zdmcreG1sO2Jhc2U2NCxQSE4yWnlCNGJXeHVjejBpYUhSMGNEb3ZMM2QzZHk1M00yNXZjbWN2TWpBd01DOXpkbWNpSUhacFpYZENiM2c5SWpBZ01DQXlOQ0F5TkNJK1BHbGpiMjRnWkdGMFlUMGlQSGRoWTJ4b1lYSmZSV1Y2ZEZvaFNtRklZakJqUjI5MVlVVk1jSGRIYm5GRmFrcHNZVUl4UTJGbFNuQjJRVGxKV0VKNlkxVk5WVk14VXpOeE1WTjFVVkJyUW1acGVqZGpRbGd4YlNGRGJVcE1WamxvYzNkbGJtVTFiRzVLVEdabGJsSjJXV0ZsUzJrM1NGRnNZMWxXWjJNeE5GRkxiV2xTUTFwS0tVZGphRmtzUlRaRU0wRkxWVWQwVlhneVpsRjFiVVo2V1hGNmEzSndSMEpaUm5oUWEzWlFVako1UWtOMGNIQm1SMmMwUVZsaFRrcG5jVXQyTWtOaFVVRm5XaUIwY0hkUVZGZEtaR0Y0Vm1aYVdFWndTVVJXVDFScE4xVlZhWE4wVGpaYVdTQktNVXN6UVVkdGJHUmpXVnN3Y1VGUGRVMWFaVkJMU1RkTlFUaDNPWGRpV1dKcmNHOTZVRXRZWmtOYUNsaFJVREZyUjFKcFNVMWlPRU15UjI5d2FUaE5hWFV5V2toSVF6bDBZVWh6WjB0aU0yaG5VR2xhTjBod1dIZGljSE5TUnpaV1lXWmphQzl3Ym10YWQxWkRZMnBKYzBWbFZtMVNSMkphYUdGVVEwNUVPVWRtWm1SSmJIVklWM1ZTUW5aTE4wNVVVa3cyU0dRM01EazJUWEZUYWtwUlFYRjNOalkwU0VkT2VHOWxZVUZGVlVwaFNXNHJOa3RJU2xwNE9IbFBOakYwWjJjNFJHTk1RV3B1YW5kcllrSllUMWhPV1VWNldGSkVXR05zV1dsNFUxcERkVFEzVUZoQlIzVnJSbkY2ZERaR1FWRk9OM1paV0ZwQlJGQlhOMUU1TjNjNU16SlVhemhsUWtJelVXSlNOVTlNT1hOeFZrTkRNRUZJVURGNFZubFZlRUZxVW5Sc09DOWxNbVJDWTJkRWJtaDRTVTVaV0hsT05qaDNjbE5rYVdJelNtTnJlSE0yUjNaRlZGUmhVbGh3VVRoNFlVdERWRmRqWVROclJWRnZaMHB6YzNsWGRYZHdVVWw0VFRWSlJ6UkJWbUZ5Ym5Vck9FTnBWRnBHV0VReVNrUk1aazlzWVRJeE0yMTFjSEJpZG1sdE0yWmpXRUZGV2psWmJWcHlWbW8wVVU5VVkzVTFZMkUzWWpOalVHUkJWbnB2YkVNNVdUbDBSaXRHZDJ0RU5VdEpPVTVhTWtacGFGWmpPVUpETVc5cVNXaGlNVU5vVm5Zd1kwTkRjVTl5Tkc5WlRGZFBSWGcwWVZGQ1ZGUllOVkZYYUVOclNFRmpZemhrWkdOalJEQkJkbWwxSzNKeVlsZHNSamN2YzBaNWNTdGpiMjVTVURkUU9GQnVSblYwYm5sa01uSmpjalVyTVdSWVJXSXJWWE5SU0dOaFVXY3lNV2N2V1dOR04xVXdZMDV1U0ZwRWJuaGhVV1k1WkVOSVNsQlJkMGhpWkc1Q05tWkNRbWswVjNJeldqWkRhemhOTUVjNVJuaE5aWGxDV2xOTFpXMUpNblZuT1RkamJ6QnVkR2w1Y1VRck1VbDBRMVpDV1cwd01WZzNhM2h0T1ZSMVIyOVNabFpUYWtjcmJuQnJNMU0wVGxaTGJISlBlR0ZrTWt4UU5sWTVZazlDUTJkV1NUVXdaSGwzZG5kcmJWaEhUbVU0VldZeVQwNVdWVVpLWkdwa1NXOVBZVmgzVVhoNWNYVkZZVXAzVW5OYVRWZHNjSFJQTTJ4RWJIUXJValpDTVROV1J6VkRhMWRsZFZKUU9EWlpUMDlYVURaUFpEQlJWekZYSzBZeU1YQnVhblV5V21weGNHazVRVVJPYzJkSVJrOVdVekF5UjBnck5rcFNRalEzVFZsWk9VVnRkSGxLYkZCeWJHOU9TMUpYYUZwRVdqUklkRU5LY1VsMmFGRnpSR1ZOWkVJNFlubGhNbWx0VWpORE5ERktOVUowUzJsdlVHeDJPREpvUldOemVFSXdOWEpHVkhGYVJrZDNWVkJXV1haclEyMDFSMnQ0UkN0elFYVXJXSEZJV1d0cE1FeFJhMnhMUjI1M05sQTBkRU4zTm1KSlpYVjBUbU5ZVFVOWFdFOHJlVnB0VmtjdmNuYzVTSEJQY25wVVJDdDJabkJWYmxOS1FYRnJOMWhWWVZOcFNGVktkM0ZOYzNadVJtZG5SWGxKTDBWdFExVjVhMVZhUzBweFdVRTlJaTQrUEhCaGRHZ2dkRDBpWXpFNUxqSTNOeXd5TkM0M1kyNHhMalE0TUN3dExqUTNOeTA0TFRJdU5qTkRNVEl1TkRBeUxDNHdOalF0TXpJc0xqSTJOQzB6TW1ZNUxqSTNOaTB1TUROUmRXSmpPQ0lnWm1sc2JEMGlJMlptWmpCbVppSWdZM1I5UEhkMGRHOXFNV1FwVEhCaGRHZ2daRDBpZWpRck5DNHJOQzQrUEhKbFkzUWdlRDBpTkNJZ2VUMGlOQ0lnZDJsa2RHZzlJakUySWlCb1pXbG5hSFE5SWpFMklpQm1hV3hzUFNKamMzTWlMejQ4TDNkMGRHOXFNV1E5UEM5emRtYys9IiwKICAgICAgInNpemVzIjogIjE5MngxOTIiLAogICAgICAidHlwZSI6ICJpbWFnZS9zdmcreG1sIgogICAgfQogIF0sCiAgImNhdGVnb3JpZXMiOiBbInByb2R1Y3Rpdml0eSIsICJ1dGlsaXRpZXMiXQp9">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .header h1 {
+            color: white;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .upload-section {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .upload-zone {
+            border: 2px dashed rgba(255, 255, 255, 0.3);
+            border-radius: 12px;
+            padding: 3rem 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            margin-bottom: 1rem;
+        }
+
+        .upload-zone:hover {
+            border-color: rgba(255, 255, 255, 0.6);
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .upload-zone.dragover {
+            border-color: #4CAF50;
+            background: rgba(76, 175, 80, 0.1);
+        }
+
+        .upload-icon {
+            font-size: 3rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 1rem;
+        }
+
+        .upload-text {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .upload-subtext {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+
+        #fileInput {
+            display: none;
+        }
+
+        .controls {
+            display: none;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .controls button {
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .controls button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-1px);
+        }
+
+        .controls button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .page-info {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .zoom-controls {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .drawing-controls {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            border-left: 1px solid rgba(255, 255, 255, 0.2);
+            padding-left: 1rem;
+            margin-left: 0.5rem;
+        }
+
+        .tool-button {
+            position: relative;
+            min-width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            font-size: 1.2rem;
+        }
+
+        .tool-button.active {
+            background: rgba(76, 175, 80, 0.3);
+            border-color: #4CAF50;
+        }
+
+        .color-picker {
+            width: 30px;
+            height: 30px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .color-picker input[type="color"] {
+            width: 40px;
+            height: 40px;
+            border: none;
+            margin: -5px;
+            cursor: pointer;
+        }
+
+        .thickness-slider {
+            width: 60px;
+        }
+
+        .canvas-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        #drawingCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            cursor: crosshair;
+            z-index: 10;
+        }
+
+        #drawingCanvas.eraser {
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><rect x="2" y="2" width="16" height="16" fill="white" stroke="black" stroke-width="2" rx="2"/></svg>') 10 10, auto;
+        }
+
+        .pdf-viewer {
+            flex: 1;
+            overflow: auto;
+            padding: 1rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        #pdfCanvas {
+            max-width: 100%;
+            height: auto;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            background: white;
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.8);
+            padding: 2rem;
+        }
+
+        .spinner {
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top: 3px solid white;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .error {
+            background: rgba(244, 67, 54, 0.1);
+            border: 1px solid rgba(244, 67, 54, 0.3);
+            color: #f44336;
+            padding: 1rem;
+            border-radius: 6px;
+            margin: 1rem;
+            text-align: center;
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .controls {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .controls > div {
+                display: flex;
+                gap: 0.5rem;
+                align-items: center;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            
+            .drawing-controls {
+                border-left: none;
+                border-top: 1px solid rgba(255, 255, 255, 0.2);
+                padding-left: 0;
+                padding-top: 0.5rem;
+                margin-left: 0;
+                margin-top: 0.5rem;
+            }
+            
+            .upload-zone {
+                padding: 2rem 1rem;
+            }
+            
+            .upload-icon {
+                font-size: 2rem;
+            }
+            
+            .thickness-slider {
+                width: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>📄 Lecteur PDF</h1>
+    </div>
+
+    <div class="upload-section">
+        <div class="upload-zone" id="uploadZone">
+            <div class="upload-icon">📁</div>
+            <div class="upload-text">Cliquez pour sélectionner un fichier PDF</div>
+            <div class="upload-subtext">ou glissez-déposez votre fichier ici</div>
+        </div>
+        <input type="file" id="fileInput" accept=".pdf" />
+    </div>
+
+    <div class="controls" id="controls">
+        <div>
+            <button id="prevBtn">◀ Précédent</button>
+            <span class="page-info">
+                Page <span id="currentPage">1</span> sur <span id="totalPages">1</span>
+            </span>
+            <button id="nextBtn">Suivant ▶</button>
+        </div>
+        <div class="zoom-controls">
+            <button id="zoomOut">🔍-</button>
+            <span id="zoomLevel">100%</span>
+            <button id="zoomIn">🔍+</button>
+            <button id="fitWidth">Ajuster</button>
+        </div>
+        <div class="drawing-controls">
+            <button id="penTool" class="tool-button" title="Stylo">✏️</button>
+            <button id="highlighterTool" class="tool-button" title="Surligneur">🖍️</button>
+            <button id="eraserTool" class="tool-button" title="Gomme">🧽</button>
+            <div class="color-picker" title="Couleur">
+                <input type="color" id="colorPicker" value="#ff0000">
+            </div>
+            <input type="range" id="thicknessSlider" class="thickness-slider" min="1" max="20" value="3" title="Épaisseur">
+            <button id="clearDrawing" title="Effacer tout">🗑️</button>
+        </div>
+    </div>
+
+    <div class="loading" id="loading">
+        <div class="spinner"></div>
+        <div>Chargement du PDF...</div>
+    </div>
+
+    <div class="error" id="error"></div>
+
+    <div class="pdf-viewer">
+        <div class="canvas-container">
+            <canvas id="pdfCanvas"></canvas>
+            <canvas id="drawingCanvas"></canvas>
+        </div>
+    </div>
+
+    <script>
+        // Configuration PDF.js
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+        class PDFReader {
+            constructor() {
+                this.pdfDoc = null;
+                this.currentPage = 1;
+                this.scale = 1.0;
+                this.canvas = document.getElementById('pdfCanvas');
+                this.ctx = this.canvas.getContext('2d');
+                this.drawingCanvas = document.getElementById('drawingCanvas');
+                this.drawingCtx = this.drawingCanvas.getContext('2d');
+                
+                // Drawing state
+                this.isDrawing = false;
+                this.currentTool = 'pen';
+                this.currentColor = '#ff0000';
+                this.currentThickness = 3;
+                this.lastX = 0;
+                this.lastY = 0;
+                
+                // Store drawings for each page
+                this.pageDrawings = {};
+                
+                this.initEventListeners();
+            }
+
+            initEventListeners() {
+                const uploadZone = document.getElementById('uploadZone');
+                const fileInput = document.getElementById('fileInput');
+                
+                // Upload zone clicks
+                uploadZone.addEventListener('click', () => fileInput.click());
+                
+                // File selection
+                fileInput.addEventListener('change', (e) => {
+                    if (e.target.files.length > 0) {
+                        this.loadPDF(e.target.files[0]);
+                    }
+                });
+                
+                // Drag and drop
+                uploadZone.addEventListener('dragover', (e) => {
+                    e.preventDefault();
+                    uploadZone.classList.add('dragover');
+                });
+                
+                uploadZone.addEventListener('dragleave', () => {
+                    uploadZone.classList.remove('dragover');
+                });
+                
+                uploadZone.addEventListener('drop', (e) => {
+                    e.preventDefault();
+                    uploadZone.classList.remove('dragover');
+                    
+                    const files = e.dataTransfer.files;
+                    if (files.length > 0 && files[0].type === 'application/pdf') {
+                        this.loadPDF(files[0]);
+                    } else {
+                        this.showError('Veuillez sélectionner un fichier PDF valide.');
+                    }
+                });
+                
+                // Navigation controls
+                document.getElementById('prevBtn').addEventListener('click', () => this.prevPage());
+                document.getElementById('nextBtn').addEventListener('click', () => this.nextPage());
+                document.getElementById('zoomIn').addEventListener('click', () => this.zoomIn());
+                document.getElementById('zoomOut').addEventListener('click', () => this.zoomOut());
+                document.getElementById('fitWidth').addEventListener('click', () => this.fitToWidth());
+                
+                // Drawing controls
+                document.getElementById('penTool').addEventListener('click', () => this.setTool('pen'));
+                document.getElementById('highlighterTool').addEventListener('click', () => this.setTool('highlighter'));
+                document.getElementById('eraserTool').addEventListener('click', () => this.setTool('eraser'));
+                document.getElementById('colorPicker').addEventListener('change', (e) => this.setColor(e.target.value));
+                document.getElementById('thicknessSlider').addEventListener('input', (e) => this.setThickness(e.target.value));
+                document.getElementById('clearDrawing').addEventListener('click', () => this.clearCurrentPageDrawing());
+                
+                // Drawing events
+                this.drawingCanvas.addEventListener('mousedown', (e) => this.startDrawing(e));
+                this.drawingCanvas.addEventListener('mousemove', (e) => this.draw(e));
+                this.drawingCanvas.addEventListener('mouseup', () => this.stopDrawing());
+                this.drawingCanvas.addEventListener('mouseout', () => this.stopDrawing());
+                
+                // Touch events for mobile
+                this.drawingCanvas.addEventListener('touchstart', (e) => {
+                    e.preventDefault();
+                    const touch = e.touches[0];
+                    const mouseEvent = new MouseEvent('mousedown', {
+                        clientX: touch.clientX,
+                        clientY: touch.clientY
+                    });
+                    this.drawingCanvas.dispatchEvent(mouseEvent);
+                });
+                
+                this.drawingCanvas.addEventListener('touchmove', (e) => {
+                    e.preventDefault();
+                    const touch = e.touches[0];
+                    const mouseEvent = new MouseEvent('mousemove', {
+                        clientX: touch.clientX,
+                        clientY: touch.clientY
+                    });
+                    this.drawingCanvas.dispatchEvent(mouseEvent);
+                });
+                
+                this.drawingCanvas.addEventListener('touchend', (e) => {
+                    e.preventDefault();
+                    const mouseEvent = new MouseEvent('mouseup', {});
+                    this.drawingCanvas.dispatchEvent(mouseEvent);
+                });
+                
+                // Keyboard shortcuts
+                document.addEventListener('keydown', (e) => {
+                    if (!this.pdfDoc) return;
+                    
+                    switch(e.key) {
+                        case 'ArrowLeft':
+                            e.preventDefault();
+                            this.prevPage();
+                            break;
+                        case 'ArrowRight':
+                            e.preventDefault();
+                            this.nextPage();
+                            break;
+                        case '+':
+                        case '=':
+                            e.preventDefault();
+                            this.zoomIn();
+                            break;
+                        case '-':
+                            e.preventDefault();
+                            this.zoomOut();
+                            break;
+                    }
+                });
+                
+                // Initialize drawing tool
+                this.setTool('pen');
+            }
+
+            async loadPDF(file) {
+                try {
+                    this.showLoading(true);
+                    this.hideError();
+                    
+                    const arrayBuffer = await file.arrayBuffer();
+                    this.pdfDoc = await pdfjsLib.getDocument(arrayBuffer).promise;
+                    
+                    this.currentPage = 1;
+                    this.scale = 1.0;
+                    this.pageDrawings = {};
+                    
+                    document.getElementById('totalPages').textContent = this.pdfDoc.numPages;
+                    document.getElementById('controls').style.display = 'flex';
+                    document.querySelector('.upload-section').style.display = 'none';
+                    
+                    await this.renderPage();
+                    this.showLoading(false);
+                    
+                } catch (error) {
+                    console.error('Erreur lors du chargement du PDF:', error);
+                    this.showError('Erreur lors du chargement du PDF. Veuillez vérifier que le fichier est valide.');
+                    this.showLoading(false);
+                }
+            }
+
+            async renderPage() {
+                if (!this.pdfDoc) return;
+                
+                try {
+                    const page = await this.pdfDoc.getPage(this.currentPage);
+                    const viewport = page.getViewport({ scale: this.scale });
+                    
+                    // Update both canvases
+                    this.canvas.height = viewport.height;
+                    this.canvas.width = viewport.width;
+                    this.drawingCanvas.height = viewport.height;
+                    this.drawingCanvas.width = viewport.width;
+                    
+                    // Match drawing canvas size to PDF canvas
+                    this.drawingCanvas.style.width = this.canvas.style.width;
+                    this.drawingCanvas.style.height = this.canvas.style.height;
+                    
+                    const renderContext = {
+                        canvasContext: this.ctx,
+                        viewport: viewport
+                    };
+                    
+                    await page.render(renderContext).promise;
+                    
+                    // Restore drawings for current page
+                    this.restorePageDrawing();
+                    
+                    // Update UI
+                    document.getElementById('currentPage').textContent = this.currentPage;
+                    document.getElementById('zoomLevel').textContent = Math.round(this.scale * 100) + '%';
+                    
+                    // Update navigation buttons
+                    document.getElementById('prevBtn').disabled = this.currentPage <= 1;
+                    document.getElementById('nextBtn').disabled = this.currentPage >= this.pdfDoc.numPages;
+                    
+                } catch (error) {
+                    console.error('Erreur lors du rendu de la page:', error);
+                    this.showError('Erreur lors du rendu de la page.');
+                }
+            }
+
+            prevPage() {
+                if (this.currentPage > 1) {
+                    this.saveCurrentPageDrawing();
+                    this.currentPage--;
+                    this.renderPage();
+                }
+            }
+
+            nextPage() {
+                if (this.currentPage < this.pdfDoc.numPages) {
+                    this.saveCurrentPageDrawing();
+                    this.currentPage++;
+                    this.renderPage();
+                }
+            }
+
+            zoomIn() {
+                this.scale = Math.min(this.scale * 1.2, 3.0);
+                this.renderPage();
+            }
+
+            zoomOut() {
+                this.scale = Math.max(this.scale / 1.2, 0.3);
+                this.renderPage();
+            }
+
+            fitToWidth() {
+                const container = document.querySelector('.pdf-viewer');
+                const containerWidth = container.clientWidth - 32; // padding
+                
+                if (this.pdfDoc) {
+                    this.pdfDoc.getPage(this.currentPage).then(page => {
+                        const viewport = page.getViewport({ scale: 1.0 });
+                        this.scale = containerWidth / viewport.width;
+                        this.renderPage();
+                    });
+                }
+            }
+
+            showLoading(show) {
+                document.getElementById('loading').style.display = show ? 'block' : 'none';
+            }
+
+            showError(message) {
+                const errorDiv = document.getElementById('error');
+                errorDiv.textContent = message;
+                errorDiv.style.display = 'block';
+                setTimeout(() => {
+                    errorDiv.style.display = 'none';
+                }, 5000);
+            }
+
+            hideError() {
+                document.getElementById('error').style.display = 'none';
+            }
+            
+            // Drawing methods
+            setTool(tool) {
+                this.currentTool = tool;
+                
+                // Update UI
+                document.querySelectorAll('.tool-button').forEach(btn => btn.classList.remove('active'));
+                document.getElementById(tool + 'Tool').classList.add('active');
+                
+                // Update cursor
+                this.drawingCanvas.className = tool === 'eraser' ? 'eraser' : '';
+            }
+            
+            setColor(color) {
+                this.currentColor = color;
+            }
+            
+            setThickness(thickness) {
+                this.currentThickness = parseInt(thickness);
+            }
+            
+            getCanvasPosition(e) {
+                const rect = this.drawingCanvas.getBoundingClientRect();
+                const scaleX = this.drawingCanvas.width / rect.width;
+                const scaleY = this.drawingCanvas.height / rect.height;
+                
+                return {
+                    x: (e.clientX - rect.left) * scaleX,
+                    y: (e.clientY - rect.top) * scaleY
+                };
+            }
+            
+            startDrawing(e) {
+                this.isDrawing = true;
+                const pos = this.getCanvasPosition(e);
+                this.lastX = pos.x;
+                this.lastY = pos.y;
+                
+                this.drawingCtx.beginPath();
+                this.drawingCtx.moveTo(pos.x, pos.y);
+            }
+            
+            draw(e) {
+                if (!this.isDrawing) return;
+                
+                const pos = this.getCanvasPosition(e);
+                
+                this.drawingCtx.lineWidth = this.currentThickness;
+                this.drawingCtx.lineCap = 'round';
+                this.drawingCtx.lineJoin = 'round';
+                
+                if (this.currentTool === 'pen') {
+                    this.drawingCtx.globalCompositeOperation = 'source-over';
+                    this.drawingCtx.strokeStyle = this.currentColor;
+                    this.drawingCtx.globalAlpha = 1;
+                } else if (this.currentTool === 'highlighter') {
+                    this.drawingCtx.globalCompositeOperation = 'multiply';
+                    this.drawingCtx.strokeStyle = this.currentColor;
+                    this.drawingCtx.globalAlpha = 0.3;
+                } else if (this.currentTool === 'eraser') {
+                    this.drawingCtx.globalCompositeOperation = 'destination-out';
+                    this.drawingCtx.globalAlpha = 1;
+                }
+                
+                this.drawingCtx.beginPath();
+                this.drawingCtx.moveTo(this.lastX, this.lastY);
+                this.drawingCtx.lineTo(pos.x, pos.y);
+                this.drawingCtx.stroke();
+                
+                this.lastX = pos.x;
+                this.lastY = pos.y;
+            }
+            
+            stopDrawing() {
+                if (this.isDrawing) {
+                    this.isDrawing = false;
+                    this.drawingCtx.beginPath();
+                }
+            }
+            
+            saveCurrentPageDrawing() {
+                if (this.drawingCanvas.width > 0 && this.drawingCanvas.height > 0) {
+                    this.pageDrawings[this.currentPage] = this.drawingCanvas.toDataURL();
+                }
+            }
+            
+            restorePageDrawing() {
+                // Clear the drawing canvas
+                this.drawingCtx.clearRect(0, 0, this.drawingCanvas.width, this.drawingCanvas.height);
+                
+                // Restore drawing if exists for this page
+                if (this.pageDrawings[this.currentPage]) {
+                    const img = new Image();
+                    img.onload = () => {
+                        this.drawingCtx.drawImage(img, 0, 0);
+                    };
+                    img.src = this.pageDrawings[this.currentPage];
+                }
+            }
+            
+            clearCurrentPageDrawing() {
+                this.drawingCtx.clearRect(0, 0, this.drawingCanvas.width, this.drawingCanvas.height);
+                delete this.pageDrawings[this.currentPage];
+            }
+        }
+
+        // Initialize the PDF reader
+        const pdfReader = new PDFReader();
+    </script>
+</body>
+</html>
